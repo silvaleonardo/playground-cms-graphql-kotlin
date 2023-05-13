@@ -1,0 +1,5 @@
+extend type Mutation {
+    createPage(input: CreatePageInput!): Page!
+    updatePageById(id: Int!, input: UpdatePageInput!): Page!
+    deletePageById(id: Int!): Page!
+}

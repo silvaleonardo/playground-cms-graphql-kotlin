@@ -1,0 +1,8 @@
+type Comment {
+    title: String
+    body: String
+    createdAt: String
+    updatedAt: String
+    user: User
+    replies: [Comment]
+}

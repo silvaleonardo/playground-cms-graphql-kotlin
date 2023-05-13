@@ -1,0 +1,7 @@
+extend type Query {
+    getPages(page: Int = 1, size: Int = 10): [Page]
+    getPagesByUserId(userId: Int!, page: Int = 1, size: Int = 10): [Page]
+    getPagesByTagId(tagId: Int!, page: Int = 1, size: Int = 10): [Page]
+    searchPages(where: SearchPagesWhere!, page: Int = 1, size: Int = 10): [Page]
+    getPageById(id: Int!): Page
+}

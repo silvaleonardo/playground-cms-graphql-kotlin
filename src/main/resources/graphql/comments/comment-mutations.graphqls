@@ -1,0 +1,6 @@
+extend type Mutation {
+    createComment(input: CreateComment!): Comment!
+    createCommentReply(input: CreateCommentReply!): Comment!
+    updateCommentById(id: Int!, input: UpdateCommentInput!): Comment!
+    deleteCommentById(id: Int!): Boolean!
+}

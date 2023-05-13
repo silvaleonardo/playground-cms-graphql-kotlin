@@ -1,0 +1,4 @@
+extend type Query {
+    getTags(page: Int = 1, size: Int = 10): [Tag]!
+    getTagById(id: Int): Tag
+}

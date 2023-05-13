@@ -1,0 +1,26 @@
+input CreateComment {
+    pageId: Int!
+    userId: Int!
+    title: String!
+    body: String!
+}
+
+input CreateCommentReply {
+    commentId: Int!
+    userId: Int!
+    title: String!
+    body: String!
+}
+
+input UpdateCommentWhere {
+    id: Int!
+}
+
+input UpdateCommentInput {
+    title: String
+    body: String
+}
+
+input DeleteCommentWhere {
+    id: Int!
+}

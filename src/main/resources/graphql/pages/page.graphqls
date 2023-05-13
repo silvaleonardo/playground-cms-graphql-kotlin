@@ -1,0 +1,17 @@
+type Page {
+    title: String
+    summary: String
+    body: String
+    status: PageStatus
+    createdAt: String
+    updatedAt: String
+    users: [User]
+    comments: [Comment]
+    tags: [Tag]
+}
+
+enum PageStatus {
+    DRAFT
+    PUBLISHED
+    HIDDEN
+}

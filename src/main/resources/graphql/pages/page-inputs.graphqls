@@ -1,0 +1,20 @@
+input SearchPagesWhere {
+    userNickname: String
+    userEmail: String
+    tagName: String
+}
+
+input CreatePageInput {
+    title: String!
+    summary: String
+    body: String!
+    status: PageStatus!
+    userIds: [Int!]!
+    tagIds: [Int!]!
+}
+
+input UpdatePageInput {
+    summary: String
+    body: String
+    status: PageStatus
+}

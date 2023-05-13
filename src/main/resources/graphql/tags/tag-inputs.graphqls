@@ -1,0 +1,7 @@
+input CreateTagInput {
+    name: String!
+}
+
+input UpdateTagInput {
+    name: String!
+}
