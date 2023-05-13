@@ -3,7 +3,7 @@ package io.github.silvaleonardo.cms.dtos.users
 import io.github.silvaleonardo.cms.entities.User
 
 data class UserDto(
-    val id: Long,
+    val id: Long?,
     val name: String,
     val email: String,
     val nickname: String
