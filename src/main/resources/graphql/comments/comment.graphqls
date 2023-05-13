@@ -2,8 +2,15 @@ type Comment {
     id: Int
     title: String
     body: String
+    status: CommentStatus
     createdAt: String
     updatedAt: String
     user: User
     replies: [Comment]
+}
+
+enum CommentStatus {
+    ACTIVATED
+    MODERATED
+    DELETED
 }

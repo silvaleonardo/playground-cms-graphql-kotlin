@@ -1,4 +1,4 @@
 extend type Query {
-    getCommentsByUserId(userId: Int!): [Comment]!
+    getCommentsByUserId(userId: Int!, page: Int = 1, size: Int = 10): [Comment]!
     getCommentById(id: Int!): Comment
 }
