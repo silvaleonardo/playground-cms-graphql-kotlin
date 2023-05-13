@@ -7,4 +7,5 @@ import java.util.Optional
 interface UserRespository: JpaRepository<User, Long> {
 
     fun findByNickname(nickname: String): Optional<User>
+    fun findByNicknameAndEmail(nickname: String, email: String): Optional<User>
 }

@@ -3,8 +3,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `nickname` VARCHAR(100) NOT NULL,
+  `token` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id`),
   UNIQUE INDEX `nickname_UNIQUE` (`nickname`),
-  INDEX `email_idx` (`email`)
+  UNIQUE INDEX `token_UNIQUE` (`token`),
+  INDEX `email_idx` (`email`),
+  INDEX `nickname_email_idx` (`nickname`, `email`)
 );

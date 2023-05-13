@@ -12,7 +12,8 @@ data class User(
     val id: Long?,
     var name: String,
     var email: String,
-    val nickname: String
+    val nickname: String,
+    var token: String?
 ) {
     companion object {
         fun of(createUserDto: CreateUserDto): User =
@@ -20,7 +21,8 @@ data class User(
                 id = null,
                 name = createUserDto.name,
                 email = createUserDto.email,
-                nickname = createUserDto.nickname
+                nickname = createUserDto.nickname,
+                token = null
             )
     }
 }

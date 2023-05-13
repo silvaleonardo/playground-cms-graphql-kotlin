@@ -17,7 +17,8 @@ class UpdateUserByIdService(private val userRepository: UserRespository) {
             id = user.get().id,
             name = updateUserDto.name ?: user.get().name,
             email = updateUserDto.email ?: user.get().email,
-            nickname = user.get().nickname
+            nickname = user.get().nickname,
+            token = user.get().token
         ))
         return UserDto.from(userUpdated)
     }

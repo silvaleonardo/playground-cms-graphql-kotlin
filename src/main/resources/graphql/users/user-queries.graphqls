@@ -2,4 +2,6 @@ extend type Query {
     getUsers(page: Int = 1, size: Int = 10): [User]!
     getUserById(id: Int!): User
     getUserByNickname(nickname: String!): User
+    # For educational purposes only, do not use as security.
+    getUserToken(nickname: String!, email: String!): String!
 }
