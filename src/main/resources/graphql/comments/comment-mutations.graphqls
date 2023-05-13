@@ -1,6 +1,6 @@
 extend type Mutation {
     createComment(input: CreateComment!): Comment!
     createCommentReply(input: CreateCommentReply!): Comment!
-    updateCommentById(id: Int!, input: UpdateCommentInput!): Comment!
+    updateCommentById(id: Int!, input: UpdateCommentByIdInput!): Comment!
     deleteCommentById(id: Int!): Boolean!
 }

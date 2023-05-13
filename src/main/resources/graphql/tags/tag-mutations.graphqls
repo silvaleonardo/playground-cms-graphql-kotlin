@@ -1,5 +1,5 @@
 extend type Mutation {
     createTag(input: CreateTagInput!): Tag!
-    updateTagById(id: Int!, input: UpdateTagInput!): Tag!
+    updateTagById(id: Int!, input: UpdateTagByIdInput!): Tag!
     deleteTagById(id: Int!): Boolean!
 }

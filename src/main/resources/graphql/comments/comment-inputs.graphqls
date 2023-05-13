@@ -12,15 +12,7 @@ input CreateCommentReply {
     body: String!
 }
 
-input UpdateCommentWhere {
-    id: Int!
-}
-
-input UpdateCommentInput {
+input UpdateCommentByIdInput {
     title: String
     body: String
-}
-
-input DeleteCommentWhere {
-    id: Int!
 }

@@ -13,7 +13,7 @@ input CreatePageInput {
     tagIds: [Int!]!
 }
 
-input UpdatePageInput {
+input UpdatePageByIdInput {
     summary: String
     body: String
     status: PageStatus
