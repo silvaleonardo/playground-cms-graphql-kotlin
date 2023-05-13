@@ -1,4 +1,5 @@
 type Comment {
+    id: Int
     title: String
     body: String
     createdAt: String

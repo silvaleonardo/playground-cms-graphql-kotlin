@@ -1,4 +1,5 @@
 type Page {
+    id: Int
     title: String
     summary: String
     body: String
