@@ -7,8 +7,6 @@ import jakarta.validation.constraints.Size
 data class CreateCommentReplyDto(
     @NotNull
     val commentId: Long,
-    @NotNull
-    val userId: Long,
     @NotBlank
     @Size(min = 2, max = 255)
     val title: String,

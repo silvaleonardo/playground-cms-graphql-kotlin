@@ -1,13 +1,11 @@
 input CreateComment {
 #    pageId: Int!
-    userId: Int!
     title: String!
     body: String
 }
 
 input CreateCommentReply {
     commentId: Int!
-    userId: Int!
     title: String!
     body: String
 }

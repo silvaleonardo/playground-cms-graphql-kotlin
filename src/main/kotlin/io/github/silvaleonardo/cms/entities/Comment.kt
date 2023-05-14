@@ -29,7 +29,7 @@ data class Comment(
     val commentId: Long?
 ) {
     companion object {
-        fun of(createCommentDto: CreateCommentDto): Comment =
+        fun of(createCommentDto: CreateCommentDto, userId: Long): Comment =
             Comment(
                 id = null,
                 title = createCommentDto.title,
@@ -38,11 +38,11 @@ data class Comment(
                 createdAt = LocalDateTime.now(),
                 updatedAt = LocalDateTime.now(),
                 deletedAt = null,
-                userId = createCommentDto.userId,
+                userId = userId,
                 commentId = null
             )
 
-        fun of(createCommentReplyDto: CreateCommentReplyDto): Comment =
+        fun of(createCommentReplyDto: CreateCommentReplyDto, userId: Long): Comment =
             Comment(
                 id = null,
                 title = createCommentReplyDto.title,
@@ -51,7 +51,7 @@ data class Comment(
                 createdAt = LocalDateTime.now(),
                 updatedAt = LocalDateTime.now(),
                 deletedAt = null,
-                userId = createCommentReplyDto.userId,
+                userId = userId,
                 commentId = createCommentReplyDto.commentId
             )
     }
