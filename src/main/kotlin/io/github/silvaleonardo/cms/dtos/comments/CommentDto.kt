@@ -2,15 +2,15 @@ package io.github.silvaleonardo.cms.dtos.comments
 
 import io.github.silvaleonardo.cms.entities.Comment
 import io.github.silvaleonardo.cms.entities.CommentStatus
-import java.util.*
+import java.time.LocalDateTime
 
 data class CommentDto(
-    val id: Long,
+    val id: Long?,
     val title: String,
     val body: String?,
     val status: CommentStatus,
-    val createdAt: Date,
-    val updatedAt: Date,
+    val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime,
 ) {
     companion object {
         fun from(comment: Comment): CommentDto =
