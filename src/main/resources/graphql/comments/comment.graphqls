@@ -6,7 +6,7 @@ type Comment {
     createdAt: String
     updatedAt: String
     user: User
-    replies: [Comment]
+    replies(page: Int = 1, size: Int = 10): [Comment]
 }
 
 enum CommentStatus {

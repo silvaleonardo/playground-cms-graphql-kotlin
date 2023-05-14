@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 interface CommentRepository: JpaRepository<Comment, Long> {
 
     fun findByUserId(userId: Long, pageable: Pageable): Page<Comment>
+    fun findByCommentId(commentId: Long, pageable: Pageable): Page<Comment>
 }

@@ -11,6 +11,7 @@ data class CommentDto(
     val status: CommentStatus,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
+    val userId: Long
 ) {
     companion object {
         fun from(comment: Comment): CommentDto =
@@ -21,6 +22,7 @@ data class CommentDto(
                 status = comment.status,
                 createdAt = comment.createdAt,
                 updatedAt = comment.updatedAt,
+                userId = comment.userId
             )
     }
 }
