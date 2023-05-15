@@ -7,7 +7,7 @@ type Page {
     createdAt: String
     updatedAt: String
     user: User
-    comments: [Comment]
+    comments(page: Int = 1, size: Int = 10): [Comment]
     tags: [Tag]
 }
 
