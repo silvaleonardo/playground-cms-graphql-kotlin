@@ -6,7 +6,7 @@ type Page {
     status: PageStatus
     createdAt: String
     updatedAt: String
-    users: [User]
+    user: User
     comments: [Comment]
     tags: [Tag]
 }
@@ -15,4 +15,5 @@ enum PageStatus {
     DRAFT
     PUBLISHED
     HIDDEN
+    DELETED
 }

@@ -9,7 +9,6 @@ input CreatePageInput {
     summary: String
     body: String!
     status: PageStatus!
-    userIds: [Int!]!
     tagIds: [Int!]!
 }
 
