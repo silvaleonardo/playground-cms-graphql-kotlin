@@ -5,7 +5,7 @@ import io.github.silvaleonardo.cms.dtos.comments.CreateCommentDto
 import io.github.silvaleonardo.cms.entities.Comment
 import io.github.silvaleonardo.cms.entities.PageComment
 import io.github.silvaleonardo.cms.entities.PageCommentCompositePrimaryKey
-import io.github.silvaleonardo.cms.exceptions.UnauthorizedException
+import io.github.silvaleonardo.cms.exceptions.business.UnauthorizedException
 import io.github.silvaleonardo.cms.repositories.CommentRepository
 import io.github.silvaleonardo.cms.repositories.PageCommentRepository
 import io.github.silvaleonardo.cms.services.pages.GetPageByIdService

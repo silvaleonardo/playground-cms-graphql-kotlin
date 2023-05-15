@@ -3,7 +3,7 @@ package io.github.silvaleonardo.cms.services.users
 import io.github.silvaleonardo.cms.dtos.users.UpdateUserDto
 import io.github.silvaleonardo.cms.dtos.users.UserDto
 import io.github.silvaleonardo.cms.entities.User
-import io.github.silvaleonardo.cms.exceptions.NotFoundException
+import io.github.silvaleonardo.cms.exceptions.business.NotFoundException
 import io.github.silvaleonardo.cms.repositories.UserRepository
 import org.springframework.stereotype.Service
 

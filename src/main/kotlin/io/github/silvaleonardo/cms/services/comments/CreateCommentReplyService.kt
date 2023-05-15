@@ -3,7 +3,7 @@ package io.github.silvaleonardo.cms.services.comments
 import io.github.silvaleonardo.cms.dtos.comments.CommentDto
 import io.github.silvaleonardo.cms.dtos.comments.CreateCommentReplyDto
 import io.github.silvaleonardo.cms.entities.Comment
-import io.github.silvaleonardo.cms.exceptions.UnauthorizedException
+import io.github.silvaleonardo.cms.exceptions.business.UnauthorizedException
 import io.github.silvaleonardo.cms.repositories.CommentRepository
 import io.github.silvaleonardo.cms.services.users.GetUserByTokenService
 import org.springframework.stereotype.Service

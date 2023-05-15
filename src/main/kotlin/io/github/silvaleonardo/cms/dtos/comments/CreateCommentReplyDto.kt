@@ -5,11 +5,11 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Size
 
 data class CreateCommentReplyDto(
-    @NotNull
+    @field:NotNull
     val commentId: Long,
-    @NotBlank
-    @Size(min = 2, max = 255)
+    @field:NotBlank
+    @field:Size(min = 2, max = 255)
     val title: String,
-    @Size(max = 255)
+    @field:Size(max = 255)
     val body: String?
 )

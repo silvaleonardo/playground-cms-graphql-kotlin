@@ -6,6 +6,7 @@ import io.github.silvaleonardo.cms.dtos.tags.UpdateTagDto
 import io.github.silvaleonardo.cms.services.tags.CreateTagService
 import io.github.silvaleonardo.cms.services.tags.DeleteTagByIdService
 import io.github.silvaleonardo.cms.services.tags.UpdateTagByIdService
+import jakarta.validation.Valid
 import org.springframework.graphql.data.method.annotation.Argument
 import org.springframework.graphql.data.method.annotation.MutationMapping
 import org.springframework.stereotype.Controller
@@ -18,12 +19,12 @@ class TagMutationResolver(
 ) {
 
     @MutationMapping
-    fun createTag(@Argument(name = "input") input: CreateTagDto): TagDto {
+    fun createTag(@Valid @Argument(name = "input") input: CreateTagDto): TagDto {
         return createTagService.execute(input)
     }
 
     @MutationMapping
-    fun updateTagById(@Argument(name = "id") id: Long, @Argument(name = "input") input: UpdateTagDto): TagDto {
+    fun updateTagById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateTagDto): TagDto {
         return updateTagByIdService.execute(id, input)
     }
 

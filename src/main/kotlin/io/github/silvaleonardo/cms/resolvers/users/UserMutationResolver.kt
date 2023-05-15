@@ -6,6 +6,7 @@ import io.github.silvaleonardo.cms.dtos.users.UserDto
 import io.github.silvaleonardo.cms.services.users.CreateUserService
 import io.github.silvaleonardo.cms.services.users.DeleteUserByIdService
 import io.github.silvaleonardo.cms.services.users.UpdateUserByIdService
+import jakarta.validation.Valid
 import org.springframework.graphql.data.method.annotation.Argument
 import org.springframework.graphql.data.method.annotation.MutationMapping
 import org.springframework.stereotype.Controller
@@ -18,12 +19,12 @@ class UserMutationResolver(
 ) {
 
     @MutationMapping
-    fun createUser(@Argument(name = "input") input: CreateUserDto): UserDto {
+    fun createUser(@Valid @Argument(name = "input") input: CreateUserDto): UserDto {
         return createUserService.execute(input)
     }
 
     @MutationMapping
-    fun updateUserById(@Argument(name = "id") id: Long, @Argument(name = "input") input: UpdateUserDto): UserDto {
+    fun updateUserById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateUserDto): UserDto {
         return updateUserByIdService.execute(id, input)
     }
 

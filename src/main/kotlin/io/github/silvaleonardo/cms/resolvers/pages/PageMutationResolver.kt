@@ -6,6 +6,7 @@ import io.github.silvaleonardo.cms.dtos.pages.UpdatePageDto
 import io.github.silvaleonardo.cms.services.pages.CreatePageService
 import io.github.silvaleonardo.cms.services.pages.DeletePageByIdService
 import io.github.silvaleonardo.cms.services.pages.UpdatePageByIdService
+import jakarta.validation.Valid
 import org.springframework.graphql.data.method.annotation.Argument
 import org.springframework.graphql.data.method.annotation.ContextValue
 import org.springframework.graphql.data.method.annotation.MutationMapping
@@ -19,12 +20,12 @@ class PageMutationResolver(
 ) {
 
     @MutationMapping
-    fun createPage(@Argument(name = "input") input: CreatePageDto, @ContextValue(name = "userToken") userToken: String): PageDto {
+    fun createPage(@Valid @Argument(name = "input") input: CreatePageDto, @ContextValue(name = "userToken") userToken: String): PageDto {
         return createPageService.execute(input, userToken)
     }
 
     @MutationMapping
-    fun updatePageById(@Argument(name = "id") id: Long, @Argument(name = "input") input: UpdatePageDto): PageDto {
+    fun updatePageById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdatePageDto): PageDto {
         return updatePageByIdService.execute(id, input)
     }
 

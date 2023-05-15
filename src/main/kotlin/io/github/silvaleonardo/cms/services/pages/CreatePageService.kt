@@ -3,11 +3,9 @@ package io.github.silvaleonardo.cms.services.pages
 import io.github.silvaleonardo.cms.dtos.pages.CreatePageDto
 import io.github.silvaleonardo.cms.dtos.pages.PageDto
 import io.github.silvaleonardo.cms.entities.Page
-import io.github.silvaleonardo.cms.entities.PageStatus
 import io.github.silvaleonardo.cms.entities.PageTag
 import io.github.silvaleonardo.cms.entities.PageTagCompositePrimaryKey
-import io.github.silvaleonardo.cms.exceptions.BadRequestException
-import io.github.silvaleonardo.cms.exceptions.UnauthorizedException
+import io.github.silvaleonardo.cms.exceptions.business.UnauthorizedException
 import io.github.silvaleonardo.cms.repositories.PageRepository
 import io.github.silvaleonardo.cms.repositories.PageTagRepository
 import io.github.silvaleonardo.cms.services.tags.GetTagByIdService
@@ -24,7 +22,6 @@ class CreatePageService(
 ) {
 
     fun execute(createPageDto: CreatePageDto, userToken: String): PageDto {
-        if (createPageDto.status == PageStatus.DELETED) throw BadRequestException("Unable to create page with status DELETED.")
         val user = try { getUserByTokenService.execute(userToken) } catch (e: Exception) { throw UnauthorizedException() }
         var page = Page.of(createPageDto, user.id!!)
         page = pageRepository.save(page)

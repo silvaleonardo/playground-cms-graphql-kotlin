@@ -2,7 +2,7 @@ package io.github.silvaleonardo.cms.services.pages
 
 import io.github.silvaleonardo.cms.entities.Page
 import io.github.silvaleonardo.cms.entities.PageStatus
-import io.github.silvaleonardo.cms.exceptions.NotFoundException
+import io.github.silvaleonardo.cms.exceptions.business.NotFoundException
 import io.github.silvaleonardo.cms.repositories.PageRepository
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime

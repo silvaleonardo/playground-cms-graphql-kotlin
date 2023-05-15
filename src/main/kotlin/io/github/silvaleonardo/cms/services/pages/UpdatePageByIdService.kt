@@ -3,9 +3,7 @@ package io.github.silvaleonardo.cms.services.pages
 import io.github.silvaleonardo.cms.dtos.pages.PageDto
 import io.github.silvaleonardo.cms.dtos.pages.UpdatePageDto
 import io.github.silvaleonardo.cms.entities.Page
-import io.github.silvaleonardo.cms.entities.PageStatus
-import io.github.silvaleonardo.cms.exceptions.BadRequestException
-import io.github.silvaleonardo.cms.exceptions.NotFoundException
+import io.github.silvaleonardo.cms.exceptions.business.NotFoundException
 import io.github.silvaleonardo.cms.repositories.PageRepository
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
@@ -14,7 +12,6 @@ import java.time.LocalDateTime
 class UpdatePageByIdService(private val pageRepository: PageRepository) {
 
     fun execute(id: Long, updatePageDto: UpdatePageDto): PageDto {
-        if (updatePageDto.status == PageStatus.DELETED) throw BadRequestException("Unable to update page to status DELETED.")
         val page = pageRepository.findById(id)
         if (page.isEmpty()) throw NotFoundException("Page not found.")
         val pageUpdated = pageRepository.save(Page(

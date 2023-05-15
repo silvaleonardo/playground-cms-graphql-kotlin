@@ -8,6 +8,7 @@ import io.github.silvaleonardo.cms.services.comments.CreateCommentReplyService
 import io.github.silvaleonardo.cms.services.comments.CreateCommentService
 import io.github.silvaleonardo.cms.services.comments.DeleteCommentByIdService
 import io.github.silvaleonardo.cms.services.comments.UpdateCommentByIdService
+import jakarta.validation.Valid
 import org.springframework.graphql.data.method.annotation.Argument
 import org.springframework.graphql.data.method.annotation.ContextValue
 import org.springframework.graphql.data.method.annotation.MutationMapping
@@ -22,17 +23,17 @@ class CommentMutationResolver(
 ) {
 
     @MutationMapping
-    fun createComment(@Argument(name = "input") input: CreateCommentDto, @ContextValue(name = "userToken") userToken: String): CommentDto {
+    fun createComment(@Valid @Argument(name = "input") input: CreateCommentDto, @ContextValue(name = "userToken") userToken: String): CommentDto {
         return createCommentService.execute(input, userToken)
     }
 
     @MutationMapping
-    fun createCommentReply(@Argument(name = "input") input: CreateCommentReplyDto, @ContextValue(name = "userToken") userToken: String): CommentDto {
+    fun createCommentReply(@Valid @Argument(name = "input") input: CreateCommentReplyDto, @ContextValue(name = "userToken") userToken: String): CommentDto {
         return createCommentReplyService.execute(input, userToken)
     }
 
     @MutationMapping
-    fun updateCommentById(@Argument(name = "id") id: Long, @Argument(name = "input") input: UpdateCommentDto): CommentDto {
+    fun updateCommentById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateCommentDto): CommentDto {
         return updateCommentByIdService.execute(id, input)
     }
 
