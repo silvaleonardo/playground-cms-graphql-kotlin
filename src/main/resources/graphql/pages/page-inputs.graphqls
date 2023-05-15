@@ -8,8 +8,8 @@ input CreatePageInput {
     title: String!
     summary: String
     body: String!
-    status: PageStatus!
-    tagIds: [Int!]!
+    status: PageStatus
+    tagIds: [Int!]
 }
 
 input UpdatePageByIdInput {

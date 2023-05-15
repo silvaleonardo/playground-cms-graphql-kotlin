@@ -5,7 +5,7 @@ import io.github.silvaleonardo.cms.entities.PageStatus
 import java.time.LocalDateTime
 
 data class PageDto(
-    val id: Long,
+    val id: Long?,
     val title : String,
     val summary: String?,
     val body: String?,
