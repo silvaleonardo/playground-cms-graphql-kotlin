@@ -1,5 +1,5 @@
 input CreateComment {
-#    pageId: Int!
+    pageId: Int!
     title: String!
     body: String
 }

@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Size
 
 data class CreateCommentDto(
+    @NotNull
+    val pageId: Long,
     @NotBlank
     @Size(min = 2, max = 255)
     val title: String,
