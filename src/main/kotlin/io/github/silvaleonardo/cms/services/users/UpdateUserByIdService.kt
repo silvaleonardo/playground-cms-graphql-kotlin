@@ -4,11 +4,11 @@ import io.github.silvaleonardo.cms.dtos.users.UpdateUserDto
 import io.github.silvaleonardo.cms.dtos.users.UserDto
 import io.github.silvaleonardo.cms.entities.User
 import io.github.silvaleonardo.cms.exceptions.NotFoundException
-import io.github.silvaleonardo.cms.repositories.UserRespository
+import io.github.silvaleonardo.cms.repositories.UserRepository
 import org.springframework.stereotype.Service
 
 @Service
-class UpdateUserByIdService(private val userRepository: UserRespository) {
+class UpdateUserByIdService(private val userRepository: UserRepository) {
 
     fun execute(id: Long, updateUserDto: UpdateUserDto): UserDto {
         val user = userRepository.findById(id)
