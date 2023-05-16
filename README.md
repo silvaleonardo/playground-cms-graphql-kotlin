@@ -292,3 +292,93 @@ input UpdateTagByIdInput {
     name: String!
 }
 ```
+
+## Context
+
+The context is filled in with the header `x-user-token` information. You can use this information in any GraphQL layer.
+
+## Error Handling
+
+The errors were customized to follow the GraphQL pattern even in business errors.
+
+### Bad Request
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Input validation error, see extensions.details property for more information.", // error message
+      "locations": [ { "line": 0, "column": 0 } ], // line and column the operation that caused the error
+      "path": [], // name the operation that caused the error
+      "extensions": {
+        "code": "BAD_REQUEST", // code of error
+        "classification": "BAD_REQUEST", // same code of error
+        "details": [ // details of error
+          {
+            "path": "createPage.input.title", // input name with bad request
+            "message": "tamanho deve ser entre 2 e 255" // input error message
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+### Not Found
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Entity not found.", // error message
+      "locations": [ { "line": 0, "column": 0 } ], // line and column the operation that caused the error
+      "path": [], // name the operation that caused the error
+      "extensions": {
+        "code": "NOT_FOUND", // code of error
+        "classification": "NOT_FOUND" // same code of error
+      }
+    }
+  ]
+}
+```
+
+### Unauthorized
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Unauthorized access.", // error message
+      "locations": [ { "line": 0, "column": 0 } ], // line and column the operation that caused the error
+      "path": [], // name the operation that caused the error
+      "extensions": {
+        "code": "UNAUTHORIZED", // code of error
+        "classification": "UNAUTHORIZED" // same code of error
+      }
+    }
+  ]
+}
+```
+
+### Internal Server Error
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Unauthorized access.", // error message
+      "locations": [ { "line": 0, "column": 0 } ], // line and column the operation that caused the error
+      "path": [], // name the operation that caused the error
+      "extensions": {
+        "code": "INTERNAL_ERROR", // code of error
+        "classification": "INTERNAL_ERROR" // same code of error
+      }
+    }
+  ]
+}
+```
