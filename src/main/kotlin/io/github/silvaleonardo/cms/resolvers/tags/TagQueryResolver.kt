@@ -14,12 +14,10 @@ class TagQueryResolver(
 ) {
 
     @QueryMapping
-    fun getTags(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int): List<TagDto> {
-        return getTagsService.execute(page, size)
-    }
+    fun getTags(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int): List<TagDto> =
+        getTagsService.execute(page, size)
 
     @QueryMapping
-    fun getTagById(@Argument(name = "id") id: Long): TagDto {
-        return getTagByIdService.execute((id))
-    }
+    fun getTagById(@Argument(name = "id") id: Long): TagDto =
+        getTagByIdService.execute((id))
 }

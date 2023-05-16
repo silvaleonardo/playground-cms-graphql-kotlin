@@ -14,12 +14,10 @@ class CommentQueryResolver(
 ) {
 
     @QueryMapping
-    fun getCommentsByUserId(@Argument(name = "userId") userId: Long, @Argument(name = "page") page: Int, @Argument(name = "size") size: Int): List<CommentDto> {
-        return getCommentsByUserIdService.execute(userId, page, size)
-    }
+    fun getCommentsByUserId(@Argument(name = "userId") userId: Long, @Argument(name = "page") page: Int, @Argument(name = "size") size: Int): List<CommentDto> =
+        getCommentsByUserIdService.execute(userId, page, size)
 
     @QueryMapping
-    fun getCommentById(@Argument(name = "id") id: Long): CommentDto {
-        return getCommentByIdService.execute(id)
-    }
+    fun getCommentById(@Argument(name = "id") id: Long): CommentDto =
+        getCommentByIdService.execute(id)
 }

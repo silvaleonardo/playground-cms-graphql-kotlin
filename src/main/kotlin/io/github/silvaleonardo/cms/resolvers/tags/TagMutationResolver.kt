@@ -19,14 +19,12 @@ class TagMutationResolver(
 ) {
 
     @MutationMapping
-    fun createTag(@Valid @Argument(name = "input") input: CreateTagDto): TagDto {
-        return createTagService.execute(input)
-    }
+    fun createTag(@Valid @Argument(name = "input") input: CreateTagDto): TagDto =
+        createTagService.execute(input)
 
     @MutationMapping
-    fun updateTagById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateTagDto): TagDto {
-        return updateTagByIdService.execute(id, input)
-    }
+    fun updateTagById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateTagDto): TagDto =
+        updateTagByIdService.execute(id, input)
 
     @MutationMapping
     fun deleteTagById(@Argument(name = "id") id: Long):Boolean {

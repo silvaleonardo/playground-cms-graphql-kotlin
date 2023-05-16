@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono
 class CustomContext: WebGraphQlInterceptor {
     override fun intercept(request: WebGraphQlRequest, chain: WebGraphQlInterceptor.Chain): Mono<WebGraphQlResponse> {
         val headerXUserToken = request.headers.getFirst("x-user-token") ?: ""
-        request.configureExecutionInput { executionInput, builder -> builder.graphQLContext { contextBuilder -> contextBuilder.of("userToken", headerXUserToken) }.build() }
+        request.configureExecutionInput { _, builder -> builder.graphQLContext { contextBuilder -> contextBuilder.of("userToken", headerXUserToken) }.build() }
         return chain.next(request)
     }
 }

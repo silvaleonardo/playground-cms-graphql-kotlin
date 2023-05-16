@@ -19,17 +19,14 @@ class PageSchemaResolver(
 ) {
 
     @SchemaMapping(typeName = "Page", field = "user")
-    fun user(pageDto: PageDto): UserDto {
-        return getUserByIdService.execute(pageDto.userId)
-    }
+    fun user(pageDto: PageDto): UserDto =
+        getUserByIdService.execute(pageDto.userId)
 
     @SchemaMapping(typeName = "Page", field = "comments")
-    fun comments(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int, pageDto: PageDto): List<CommentDto> {
-        return getCommentsByPageIdService.execute(pageDto.id!!, page, size)
-    }
+    fun comments(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int, pageDto: PageDto): List<CommentDto> =
+        getCommentsByPageIdService.execute(pageDto.id!!, page, size)
 
     @SchemaMapping(typeName = "Page", field = "tags")
-    fun tags(pageDto: PageDto): List<TagDto> {
-        return getTagsByPageIdService.execute(pageDto.id!!)
-    }
+    fun tags(pageDto: PageDto): List<TagDto> =
+        getTagsByPageIdService.execute(pageDto.id!!)
 }

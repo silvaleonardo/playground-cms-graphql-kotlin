@@ -15,12 +15,10 @@ class CommentSchemaResolver(
 ) {
 
     @SchemaMapping(typeName = "Comment", field = "replies")
-    fun replies(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int, commentDto: CommentDto): List<CommentDto> {
-        return getCommentRepliesByIdService.execute(commentDto.id!!, page, size)
-    }
+    fun replies(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int, commentDto: CommentDto): List<CommentDto> =
+        getCommentRepliesByIdService.execute(commentDto.id!!, page, size)
 
     @SchemaMapping(typeName = "Comment", field = "user")
-    fun user(commentDto: CommentDto): UserDto {
-        return getUserByIdService.execute(commentDto.userId)
-    }
+    fun user(commentDto: CommentDto): UserDto =
+        getUserByIdService.execute(commentDto.userId)
 }

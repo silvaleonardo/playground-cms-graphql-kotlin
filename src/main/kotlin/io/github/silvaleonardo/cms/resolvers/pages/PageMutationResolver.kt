@@ -20,14 +20,12 @@ class PageMutationResolver(
 ) {
 
     @MutationMapping
-    fun createPage(@Valid @Argument(name = "input") input: CreatePageDto, @ContextValue(name = "userToken") userToken: String): PageDto {
-        return createPageService.execute(input, userToken)
-    }
+    fun createPage(@Valid @Argument(name = "input") input: CreatePageDto, @ContextValue(name = "userToken") userToken: String): PageDto =
+        createPageService.execute(input, userToken)
 
     @MutationMapping
-    fun updatePageById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdatePageDto): PageDto {
-        return updatePageByIdService.execute(id, input)
-    }
+    fun updatePageById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdatePageDto): PageDto =
+        updatePageByIdService.execute(id, input)
 
     @MutationMapping
     fun deletePageById(@Argument(name = "id") id: Long): Boolean {

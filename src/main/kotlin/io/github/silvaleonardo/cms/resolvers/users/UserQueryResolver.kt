@@ -18,22 +18,18 @@ class UserQueryResolver(
 ) {
 
     @QueryMapping
-    fun getUsers(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int): List<UserDto> {
-        return getUsersService.execute(page, size)
-    }
+    fun getUsers(@Argument(name = "page") page: Int, @Argument(name = "size") size: Int): List<UserDto> =
+        getUsersService.execute(page, size)
 
     @QueryMapping
-    fun getUserById(@Argument(name = "id") id: Long): UserDto {
-        return getUserByIdService.execute(id)
-    }
+    fun getUserById(@Argument(name = "id") id: Long): UserDto =
+        getUserByIdService.execute(id)
 
     @QueryMapping
-    fun getUserByNickname(@Argument(name = "nickname") nickname: String): UserDto {
-        return getUserByNicknameService.execute(nickname)
-    }
+    fun getUserByNickname(@Argument(name = "nickname") nickname: String): UserDto =
+        getUserByNicknameService.execute(nickname)
 
     @QueryMapping
-    fun getUserToken(@Argument(name = "nickname") nickname: String, @Argument(name = "email") email: String): String {
-        return getUserTokenService.execute(nickname, email)
-    }
+    fun getUserToken(@Argument(name = "nickname") nickname: String, @Argument(name = "email") email: String): String =
+        getUserTokenService.execute(nickname, email)
 }

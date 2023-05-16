@@ -19,14 +19,12 @@ class UserMutationResolver(
 ) {
 
     @MutationMapping
-    fun createUser(@Valid @Argument(name = "input") input: CreateUserDto): UserDto {
-        return createUserService.execute(input)
-    }
+    fun createUser(@Valid @Argument(name = "input") input: CreateUserDto): UserDto =
+        createUserService.execute(input)
 
     @MutationMapping
-    fun updateUserById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateUserDto): UserDto {
-        return updateUserByIdService.execute(id, input)
-    }
+    fun updateUserById(@Argument(name = "id") id: Long, @Valid @Argument(name = "input") input: UpdateUserDto): UserDto =
+        updateUserByIdService.execute(id, input)
 
     @MutationMapping
     fun deleteUserById(@Argument(name = "id") id: Long): Boolean {
