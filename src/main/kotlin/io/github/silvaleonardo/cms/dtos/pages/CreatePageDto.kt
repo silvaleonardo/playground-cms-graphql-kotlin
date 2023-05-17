@@ -1,6 +1,7 @@
 package io.github.silvaleonardo.cms.dtos.pages
 
 import io.github.silvaleonardo.cms.entities.PageStatus
+import io.github.silvaleonardo.cms.entities.PageType
 import io.github.silvaleonardo.cms.validators.PageStatusNotDeleted
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
@@ -14,5 +15,6 @@ data class CreatePageDto(
     val body: String?,
     @field:PageStatusNotDeleted
     val status: PageStatus?,
+    val type: PageType?,
     val tagIds: List<Long>?
 )

@@ -20,6 +20,7 @@ class DeletePageByIdService(private val pageRepository: PageRepository) {
                 summary = page.get().summary,
                 body = page.get().body,
                 status = PageStatus.DELETED,
+                type = page.get().type,
                 createdAt = page.get().createdAt,
                 updatedAt = LocalDateTime.now(),
                 deletedAt = LocalDateTime.now(),

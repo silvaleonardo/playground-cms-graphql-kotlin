@@ -18,6 +18,9 @@ data class Page(
     @ColumnTransformer(read = "UPPER(status)", write = "LOWER(?)")
     @Enumerated(EnumType.STRING)
     val status: PageStatus,
+    @ColumnTransformer(read = "UPPER(type)", write = "LOWER(?)")
+    @Enumerated(EnumType.STRING)
+    val type: PageType,
     @Column(name = "created_at")
     val createdAt: LocalDateTime,
     @Column(name = "updated_at")
@@ -35,6 +38,7 @@ data class Page(
                 summary = createPageDto.summary ?: null,
                 body = createPageDto.body ?: null,
                 status = createPageDto.status ?: PageStatus.DRAFT,
+                type = createPageDto.type ?: PageType.POST,
                 createdAt = LocalDateTime.now(),
                 updatedAt = LocalDateTime.now(),
                 deletedAt = null,

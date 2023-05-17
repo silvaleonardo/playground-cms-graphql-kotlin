@@ -2,6 +2,7 @@ package io.github.silvaleonardo.cms.dtos.pages
 
 import io.github.silvaleonardo.cms.entities.Page
 import io.github.silvaleonardo.cms.entities.PageStatus
+import io.github.silvaleonardo.cms.entities.PageType
 import java.time.LocalDateTime
 
 data class PageDto(
@@ -10,6 +11,7 @@ data class PageDto(
     val summary: String?,
     val body: String?,
     val status: PageStatus,
+    val type: PageType,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
     val userId: Long
@@ -22,6 +24,7 @@ data class PageDto(
                 summary = page.summary,
                 body = page.body,
                 status = page.status,
+                type = page.type,
                 createdAt = page.createdAt,
                 updatedAt = page.updatedAt,
                 userId = page.userId

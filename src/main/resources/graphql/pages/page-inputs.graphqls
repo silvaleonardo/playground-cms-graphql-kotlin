@@ -9,6 +9,7 @@ input CreatePageInput {
     summary: String
     body: String!
     status: PageStatus
+    type: PageType
     tagIds: [Int!]
 }
 

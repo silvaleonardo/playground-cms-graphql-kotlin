@@ -4,6 +4,7 @@ type Page {
     summary: String
     body: String
     status: PageStatus
+    type: PageType
     createdAt: String
     updatedAt: String
     user: User
@@ -16,4 +17,9 @@ enum PageStatus {
     PUBLISHED
     HIDDEN
     DELETED
+}
+
+enum PageType {
+    POST
+    REVIEW
 }

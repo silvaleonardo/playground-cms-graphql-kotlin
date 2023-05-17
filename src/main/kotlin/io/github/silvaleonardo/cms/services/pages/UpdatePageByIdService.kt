@@ -20,6 +20,7 @@ class UpdatePageByIdService(private val pageRepository: PageRepository) {
             summary = updatePageDto.summary ?: page.get().summary,
             body = updatePageDto.body ?: page.get().body,
             status = updatePageDto.status ?: page.get().status,
+            type = page.get().type,
             createdAt = page.get().createdAt,
             updatedAt = LocalDateTime.now(),
             deletedAt = page.get().deletedAt,
