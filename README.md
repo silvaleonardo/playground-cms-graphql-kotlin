@@ -51,20 +51,36 @@ Access the URL below to access the GraphiQL Playground.
 Add the query below to execute your first request:
 
 ```graphql
-{
+query {
     getPages {
         title summary body
-        user { name nickname }
+        user { ...UserFragment }
         tags { name }
         comments {
             title body
-            user { name nickname }
+            user { ...UserFragment }
             replies {
                 title body
-                user { name nickname }
+                user { ...UserFragment }
+            }
+        }
+        complement {
+            ... on PageComplementPost {
+                attachments
+                more
+            }
+            ... on PageComplementReview {
+                references
+                rating
+                recommend
             }
         }
     }
+}
+
+fragment UserFragment on User {
+    name
+    nickname
 }
 ```
 
@@ -138,11 +154,13 @@ type Page {
     summary: String
     body: String
     status: PageStatus
+    type: PageType
     createdAt: String
     updatedAt: String
     user: User
     comments(page: Int = 1, size: Int = 10): [Comment]
     tags: [Tag]
+    complement: PageComplement
 }
 
 enum PageStatus {
@@ -150,6 +168,11 @@ enum PageStatus {
     PUBLISHED
     HIDDEN
     DELETED
+}
+
+enum PageType {
+    POST
+    REVIEW
 }
 ```
 
@@ -196,6 +219,43 @@ input UpdatePageByIdInput {
 ```
 
 > Note: To create Page it is necessary to inform the header: `x-user-token`.
+
+## PageComplements
+
+```graphql
+union PageComplement = PageComplementPost | PageComplementReview
+
+type PageComplementPost {
+    attachments: String
+    more: String
+}
+
+type PageComplementReview {
+    references: String
+    rating: Float
+    recommend: Boolean
+}
+```
+
+### Mutations
+
+```graphql
+type Mutation {
+    createPageComplementPostByPageId(pageId: Int!, input: CreatePageComplementPostByPageId!): PageComplementPost
+    createPageComplementReviewByPageId(pageId: Int!, input: CreatePageComplementReviewByPageId!): PageComplementReview
+}
+
+input CreatePageComplementPostByPageId {
+    attachments: String
+    more: String
+}
+
+input CreatePageComplementReviewByPageId {
+    references: String
+    rating: Float
+    recommend: Boolean
+}
+```
 
 ## Comments
 
