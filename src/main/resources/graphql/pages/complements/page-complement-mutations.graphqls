@@ -1,0 +1,4 @@
+extend type Mutation {
+    createPageComplementPostByPageId(pageId: Int!, input: CreatePageComplementPostByPageId!): PageComplementPost
+    createPageComplementReviewByPageId(pageId: Int!, input: CreatePageComplementReviewByPageId!): PageComplementReview
+}

@@ -1,0 +1,10 @@
+input CreatePageComplementPostByPageId {
+    attachments: String
+    more: String
+}
+
+input CreatePageComplementReviewByPageId {
+    references: String
+    rating: Float
+    recommend: Boolean
+}

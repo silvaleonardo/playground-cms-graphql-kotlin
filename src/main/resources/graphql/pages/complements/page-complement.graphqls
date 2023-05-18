@@ -1,0 +1,12 @@
+union PageComplement = PageComplementPost | PageComplementReview
+
+type PageComplementPost {
+    attachments: String
+    more: String
+}
+
+type PageComplementReview {
+    references: String
+    rating: Float
+    recommend: Boolean
+}
